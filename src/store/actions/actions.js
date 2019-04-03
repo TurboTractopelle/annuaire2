@@ -28,12 +28,12 @@ export const getSectionsSuccess = createAction(actionTypes.GET_SECTIONS_SUCCESS,
 export const getSectionsFail = createAction(actionTypes.GET_SECTIONS_FAIL)
 
 
-export const getList = ()=> {
+export const getList = (sectionId)=> {
     return dispatch => {
         dispatch(getListStart())    
         
         setTimeout(()=>{
-            dispatch(getListSuccess("ok"))         
+            dispatch(getListSuccess(sectionId))         
         },2000)
 
     }

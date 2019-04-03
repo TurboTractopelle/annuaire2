@@ -6,7 +6,8 @@ class Section extends Component {
 
     
 componentDidMount(){
-    console.log(this.props.match.params.section)
+    const sectionId = this.props.match.params.section
+    this.props.getList(sectionId)
 }
 
 render() {
@@ -32,7 +33,7 @@ const stateToProps = state => {
 
 const dispatchToProps = dispatch => {
     return({
-        getList : ()=> dispatch(actions.getList())
+        getList : (sectionId)=> dispatch(actions.getList(sectionId))
     })
 }
 

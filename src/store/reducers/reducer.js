@@ -16,12 +16,13 @@ const reducer = (state = initialState, action) => {
         case actionTypes.GET_SECTIONS_SUCCESS:
             return ({...state, loading:false, sections: action.data})
 
-        /*case actionTypes.GET_LIST_START:
+        case actionTypes.GET_LIST_START:
+        console.log("GET_LIST_START")
             return ({...state, loading:true})
 
         case actionTypes.GET_LIST_SUCCESS:
             return ({...state, loading:false, list: action.data})            
-        */
+
         default:
             return state
     }

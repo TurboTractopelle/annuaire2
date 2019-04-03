@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 class Home extends Component {
 
 componentDidMount(){
-    if(this.props.sections.length != 0){
+    if(this.props.sections.length !== 0){
         console.log("here", this.props.sections.length, this.props.loading)
         this.props.getSections()
     }
