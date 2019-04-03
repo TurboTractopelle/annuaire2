@@ -1,0 +1,15 @@
+{
+  "sections" : {
+    "accessoires" : {
+      "001" : {
+        "address" : "address1",
+        "title" : "titre1"
+      },
+      "002" : {
+        "adress" : "address2",
+        "title" : "titre2"
+      },
+      "sectionTitle" : "Accessoires"
+    }
+  }
+}
