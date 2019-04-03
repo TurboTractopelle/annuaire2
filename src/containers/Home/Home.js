@@ -6,11 +6,7 @@ import {Link} from "react-router-dom"
 class Home extends Component {
 
 componentDidMount(){
-    if(this.props.sections.length !== 0){
-        console.log("here", this.props.sections.length, this.props.loading)
-        this.props.getSections()
-    }
-    
+    this.props.getSections()   
 }
 
 render() {
@@ -40,9 +36,8 @@ const stateToProps = state => {
 
 const dispatchToProps = dispatch =>{
     return({
-        getSections : ()=> dispatch(actions.getSections())
+        getSections: ()=>dispatch(actions.getSections())
     })
 }
 
 export default connect(stateToProps, dispatchToProps)(Home);
-//export default Home

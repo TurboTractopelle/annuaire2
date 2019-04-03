@@ -10,7 +10,7 @@ const createAction = (type, ...autreArgs)=> {
 }
 
 export const getSections = () =>{
- 
+    console.log("ici")
     return dispatch => {
         dispatch(getSectionsStart())
     
@@ -32,9 +32,13 @@ export const getList = (sectionId)=> {
     return dispatch => {
         dispatch(getListStart())    
         
-        setTimeout(()=>{
-            dispatch(getListSuccess(sectionId))         
-        },2000)
+        axios.get("https://annuaire2-228f7.firebaseio.com/sections/"+sectionId +".json")
+            .then(res => {
+                const data = Object.keys(res.data).map((item,i,k)=> ({id: k[i], data: res.data[item]}) )
+                dispatch(getListSuccess(data))
+            })
+    
+
 
     }
 }
