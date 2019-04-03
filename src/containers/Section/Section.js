@@ -11,16 +11,18 @@ componentDidMount(){
     this.props.getList(sectionId)
 }
 
+componentWillUnmount(){
+    this.props.clearList()
+}
+
 render() {
-
     const loading = this.props.loading && "Loading..."
-
     const list = this.props.list.map(item => item.data.title ? <Item key={item.id} {...item} /> : null )
-
-
+   
     return (
         <div>
-            <h1>Section</h1>
+            <h1>{this.props.sectionInfo.title}</h1>
+            <p>{this.props.sectionInfo.desc}</p>
             {loading}
             {list}
         </div>
@@ -31,13 +33,15 @@ render() {
 const stateToProps = state => {
     return({
         list: state.list,
-        loading: state.loading
+        loading: state.loading,
+        sectionInfo: state.sectionInfo
     })
 }
 
 const dispatchToProps = dispatch => {
     return({
-        getList : (sectionId)=> dispatch(actions.getList(sectionId))
+        getList : (sectionId)=> dispatch(actions.getList(sectionId)),
+        clearList: ()=>dispatch(actions.clearList())        
     })
 }
 

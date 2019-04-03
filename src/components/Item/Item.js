@@ -6,7 +6,8 @@ const Item =(props)=> {
     const {data} = props
 return (
         <div>
-            title : {data.title}
+            <h2>{data.title}</h2>
+            <p>{data.address}</p>
         </div>
     );
 }

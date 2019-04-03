@@ -6,11 +6,16 @@ import {Link} from "react-router-dom"
 class Home extends Component {
 
 componentDidMount(){
-    this.props.getSections()   
+    if(this.props.sections.length == 0){
+        this.props.getSections()   
+    }
 }
 
+
+
 render() {
-    const loading = this.props.loading && "Loading..."
+
+    const loading = this.props.loading && this.props.sections.length !==0 ? "Loading..." : null
     
     return (
         <div>
